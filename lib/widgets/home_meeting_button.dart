@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:zoom_clone/utils/colors.dart';
-
 class HomeMeetingButton extends StatelessWidget {
-  const HomeMeetingButton(
-      {super.key, this.onTap, required this.icon, required this.text});
-  final Function()? onTap;
+  final VoidCallback onPressed;
   final IconData icon;
   final String text;
+  const HomeMeetingButton({
+    Key? key,
+    required this.onPressed,
+    required this.icon,
+    required this.text,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: onPressed,
       child: Column(
         children: [
           Container(
@@ -33,12 +37,12 @@ class HomeMeetingButton extends StatelessWidget {
               size: 30,
             ),
           ),
-          const SizedBox(
-            height: 10,
-          ),
+          const SizedBox(height: 10),
           Text(
             text,
-            style: const TextStyle(color: Colors.grey),
+            style: const TextStyle(
+              color: Colors.grey,
+            ),
           )
         ],
       ),
